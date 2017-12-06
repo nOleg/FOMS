@@ -1,0 +1,11 @@
+@keyframes rip {
+    0% {
+        text-shadow: 0;
+    }
+    50% {
+        text-shadow: -2px 5px 3px #000000;
+    }
+    100% {
+        text-shadow: 0;
+    }
+}

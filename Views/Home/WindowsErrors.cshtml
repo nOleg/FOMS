@@ -1,0 +1,54 @@
+@*@model IList<LogStore>*@
+@model List<SrvError>
+
+@{
+     ViewData["Title"] = "Журнал";
+     ViewData["pth"]=@"<a href='/'>Главная</a> &bull; Просмотр журнала и ошибок";
+}
+
+<style>
+    table{
+        width: 60%;
+        margin: 10px auto;
+        font-size: 16px;
+    }
+
+    table thead td{
+        background: #333;
+        color: rgb(214, 194, 8);
+        font-size: 18px;
+    }
+
+    table td{
+        text-align: center;
+    }
+
+    table tr:nth-child(2n+1){
+        background-color: rgb(197, 195, 195);
+        
+    }
+     table tr:nth-child(2n){
+     border-left: 2px solid #333;
+     border-right: 2px solid #333;
+    }
+</style>
+<br/>
+<p style="text-align: center;color:red;">*Последнее сообщение сверху</p>
+<table>
+    <thead>
+            <td>Сообщение</td>
+            <td>Время</td>
+    </thead>
+        
+        @foreach(SrvError ls in @Model)
+        {
+            <tr>
+                <td>@ls.Message</td>
+                <td>@ls.TimeStamp</td>
+            </tr>
+        }
+</table>
+
+
+
+

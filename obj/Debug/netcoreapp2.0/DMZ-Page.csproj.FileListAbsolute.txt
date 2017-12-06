@@ -1,0 +1,10 @@
+C:\Users\onesterov\Documents\DMZ-Page\bin\Debug\netcoreapp2.0\DMZ-Page.deps.json
+C:\Users\onesterov\Documents\DMZ-Page\bin\Debug\netcoreapp2.0\DMZ-Page.runtimeconfig.json
+C:\Users\onesterov\Documents\DMZ-Page\bin\Debug\netcoreapp2.0\DMZ-Page.runtimeconfig.dev.json
+C:\Users\onesterov\Documents\DMZ-Page\bin\Debug\netcoreapp2.0\DMZ-Page.dll
+C:\Users\onesterov\Documents\DMZ-Page\bin\Debug\netcoreapp2.0\DMZ-Page.pdb
+C:\Users\onesterov\Documents\DMZ-Page\obj\Debug\netcoreapp2.0\DMZ-Page.csproj.CoreCompileInputs.cache
+C:\Users\onesterov\Documents\DMZ-Page\obj\Debug\netcoreapp2.0\DMZ-Page.AssemblyInfoInputs.cache
+C:\Users\onesterov\Documents\DMZ-Page\obj\Debug\netcoreapp2.0\DMZ-Page.AssemblyInfo.cs
+C:\Users\onesterov\Documents\DMZ-Page\obj\Debug\netcoreapp2.0\DMZ-Page.dll
+C:\Users\onesterov\Documents\DMZ-Page\obj\Debug\netcoreapp2.0\DMZ-Page.pdb

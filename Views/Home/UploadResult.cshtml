@@ -1,0 +1,76 @@
+@model IList<PositionReference>
+
+@{
+        ViewData["Title"] = "Таблица должностей";
+    ViewData["pth"]=@"<a href='/'>Главная</a> &bull; <a href='/Home/UploadWorkers'>Загрузка справочника должностей</a> &bull; Таблица должностей";
+}
+
+<div class="content">
+<h2>Таблица должностей</h2>
+<b>Кол-во: @ViewData["count"]</b>
+<table>
+<thead>
+        <td>Код должности</td>
+        <td>Группа должностей</td>           
+        <td>Сертификация</td>
+        <td>Должность</td>
+        <td>Медицинская</td>
+        <td>Дата прекращения</td>
+        <td>Тип должности</td>
+        <td>Возможность прикрепления</td>          
+</thead>
+<tbody>
+    @foreach(PositionReference r in @Model){
+<tr>
+        <td>@r.Code</td>
+        <td>@r.Parent</td>           
+        <td>@r.Certification</td>
+        <td>@r.Position</td>
+        <td>@r.Medical</td>
+        <td>@r.DateEnd</td>
+        <td>@r.MedCat</td>
+        <td>@r.Enrolling</td>       
+</tr>
+    }
+</tbody>
+
+</table>
+
+</div>
+
+<style>
+    body{
+       
+        font-family: Arial, Helvetica, sans-serif
+    }
+    b{margin: 10px;}
+
+thead td{
+    background: rgb(49, 105, 206);
+    text-align: center;
+    color: #ffffff;
+}
+
+    .content{
+        margin:  40px auto;
+        direction: inherit;
+        width: 1024px;
+    }
+
+    .content h2{
+        text-align: center;
+    }
+
+    .content table{
+        width: 100%;
+        border:  1px solid #333;
+    }
+
+    .content table tr{
+        height: 40px;
+    }
+
+     .content table tr:nth-child(2n+1){
+        background: rgb(224, 224, 224);
+    }
+</style>

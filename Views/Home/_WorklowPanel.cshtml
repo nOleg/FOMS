@@ -1,0 +1,95 @@
+@model DMZPage.Models.BaseClass
+    @{
+       
+    }
+<h3>Таблица Workflow</h3>
+    <table>
+        <thead>
+                <td>RowID</td>
+                <td>InputFileName</td>
+                <td>InputTime</td>
+                <td>TotalSNILS</td>
+                <td>OutputFileName</td>
+                <td>OutputTime</td>
+                <td>DateBegin</td>
+                <td>DateEnd</td>
+                <td>Status</td>
+        </thead>
+        @foreach(DMZPage.Models.Workflow wfl in Model.Workflows)
+        {
+            <tr>
+                <td>@wfl.RowID</td>
+                <td>@wfl.InputFileName</td>
+                <td>@wfl.InputTime</td>
+                <td>@wfl.TotalSNILS</td>
+                <td>@wfl.OutputFileName</td>
+                <td>@wfl.OutputTime</td>
+                <td>@wfl.DateBegin</td>
+                <td>@wfl.DateEnd</td>
+                <td>@wfl.Status</td>
+            </tr>
+        }
+    </table>
+
+
+<h3>Таблица RequestSelect</h3>
+ <table>
+        <thead>
+                <td>RowID</td>
+                <td>Line</td>
+                <td>SNILS</td>
+                <td>WorkFlowID</td>
+                <td>RequestTime</td>
+                <td>ResponseTime</td>
+                <td>RequestAttempt</td>
+                <td>RequestStatus</td>
+                <td>StatusMessage</td>
+                <td>EmployeeRecords</td>
+        </thead>
+                 @foreach(DMZPage.Models.RequestSelect rs in Model.RequestSelects)
+        {
+            <tr>
+                <td>@rs.RowID</td>
+                <td>@rs.Line</td>
+                <td>@rs.SNILS</td>
+                <td>@rs.WorkFlowID</td>
+                <td>@rs.RequestTime</td>
+                <td>@rs.ResponseTime</td>
+                <td>@rs.RequestAttempt</td>
+                <td>@rs.RequestStatus</td>
+                <td>@rs.StatusMessage</td>
+                <td>@rs.EmployeeRecords</td>
+          </tr>
+        }
+
+
+ </table>
+
+
+
+
+    <style>
+        table{
+            width: 100%;
+            position: relative;
+         }
+        table tr{
+                height: 40px;
+                border-bottom: 1px solid #333;
+                text-align: center;
+        }
+
+        thead td{
+            background: #333;
+            color: wheat;
+            text-align: center;
+        }
+
+       
+        table tr:hover{
+             background: rgb(36, 241, 224);
+
+        }
+    </style>
+
+      

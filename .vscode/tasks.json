@@ -1,0 +1,13 @@
+{
+    "version": "2.0.0",
+    "tasks": [{
+        "taskName": "build",
+        "command": "dotnet",
+        "type": "process",
+        "args": [
+            "build",
+            "${workspaceFolder}/DMZ-Page.csproj"
+        ],
+        "problemMatcher": "$msCompile"
+    }]
+}

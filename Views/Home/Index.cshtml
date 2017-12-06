@@ -1,0 +1,293 @@
+﻿@model List<PositionReference>;
+
+@{
+    ViewData["Title"] = "Главная";
+    
+}
+
+<link rel="stylesheet" href="css/anime.css"/>
+
+<div class="mnu-line">
+    <ul class="mnu">
+        <a href="Home/UploadWorkers"><li>СПРАВОЧНИК ДОЛЖНОСТЕЙ</li></a>
+        <a href="Home/ResPath"><li>НАСТРОЙКА ПУТЕЙ К РЕСУРСАМ</li></a>
+        <a href="Home/BaseMonitor"><li>МОНИТОР БАЗЫ ДАННЫХ</li></a>
+        <a href="Home/WindowsErrors"><li>ПРОСМОТР ЖУРНАЛА И ОШИБОК
+            @if(@ViewBag.summsg>0){
+            <div class="colerr">
+                <div class="num">
+                   @ViewBag.summsg
+                </div>
+            </div>
+            }
+            </li></a>
+         <li>
+           ОТЧЕТЫ SQL
+             <ul class="open-sub">
+             <a href="@ViewBag.path1"><li>СОСТОЯНИЕ ОБРАБОТКИ ВХОДНЫХ ФАЙЛОВ</li></a>
+             <a href="@ViewBag.path2"><li>СТАТИСТИКА ОБРАБОТКИ ЗА ПЕРИОД</li></a>
+          
+            
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<!-- <h2 class="mtext">Меню</h2>
+<div class="cont-menu">
+    <a href="Home/UploadWorkers"><div class="button btn-settings" ><div class="btn-text">Справочник должностей</div></div></a>
+    <a href="Home/ResPath"><div class="button btn-edit"><div class="btn-text">Настройка путей к ресурсам</div></div></a>
+    <a href="Home/BaseMonitor"><div class="button btn-note"><div class="btn-text">Монитор базы данных</div></div></a> 
+    <a href="Home/WindowsErrors"><div class="button btn-search"><div class="btn-text">Просмотр журнала ошибок</div></div></a>
+</div>
+<h2 class="mtext">Отчеты SQL</h2>
+<div class="cont-menu">
+    <a href="http://192.168.0.69/Reports/Pages/Report.aspx?ItemPath=%2fFRMR_Reports%2f%d0%9e%d1%82%d1%87%d0%b5%d1%82+%d0%be+%d1%81%d0%be%d1%81%d1%82%d0%be%d1%8f%d0%bd%d0%b8%d0%b8+%d0%be%d0%b1%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%ba%d0%b8+%d0%b2%d1%85%d0%be%d0%b4%d0%bd%d1%8b%d1%85+%d1%84%d0%b0%d0%b9%d0%bb%d0%be%d0%b2&ViewMode=Detail"><div class="button" ><div class="btn-text2">Состояние обработки входных файлов</div></div></a>
+    <a href="http://192.168.0.69/Reports/Pages/Report.aspx?ItemPath=%2fFRMR_Reports%2f%d0%a1%d1%82%d0%b0%d1%82%d0%b8%d1%81%d1%82%d0%b8%d0%ba%d0%b0+%d0%be%d0%b1%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%ba%d0%b8+%d0%a1%d0%9d%d0%98%d0%9b%d0%a1+%d0%b7%d0%b0+%d0%bf%d0%b5%d1%80%d0%b8%d0%be%d0%b4+%d0%b2%d1%80%d0%b5%d0%bc%d0%b5%d0%bd%d0%b8&ViewMode=Detail"><div class="button"><div class="btn-text2">Статистика обработки за период</div></div></a>
+</div> -->
+
+
+
+
+
+<style>
+body{
+    /*background:url("images/bg.png");*/
+    
+     
+}
+.colerr{
+    position:absolute;
+    top:75%;
+    left:80%;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgb(67, 67, 216);
+    border: 3px solid #3f71ce; 
+    box-shadow: 0 0 3px 4px rgb(179, 178, 178);
+    font-size: 20px;
+    color: rgb(236, 6, 6);
+  }
+
+.num{
+  
+    margin: 10px auto;
+
+}
+
+
+   ul, li {
+    list-style: none; /* убираем маркеры списка */
+    padding: 0; /* убираем отступы у Ul и LI */
+    margin: 0; /* убираем поля */
+   }
+
+ .mnu-line{
+    margin: 10% 0 0 0;
+    background: rgb(54, 54, 122);
+    
+}
+
+.mnu{
+     text-align: center;
+
+}
+
+.mnu li ul{
+    background: rgb(54, 54, 122);
+    position:absolute;
+    left: -50%;
+    top:  100%;
+}
+
+   .mnu li{
+       
+       position:relative;
+        display: inline-block;
+        font-size: 1em;
+       color: rgb(255, 255, 255);
+       padding: 40px 30px;
+    }
+
+
+   .mnu ul li a{
+    
+       color: rgb(255, 255, 255);
+      
+   }
+      .mnu ul a{
+       display: block;
+       font-size: 0.8em;
+       color: rgb(255, 255, 255);
+        text-decoration: none;
+      
+   }
+
+         .mnu li:hover{
+       background: #3f71ce;
+       animation:rip 1s ease-in; 
+     
+   }
+        .mnu li a:hover{
+       background: #3f71ce;
+       animation:rip 1s ease-in;
+    
+   }
+[class="open-sub"]{
+    display: none;
+}
+
+.mnu li:hover [class="open-sub"]{
+    white-space:nowrap;
+    /*display:block;*/ 
+     display:inherit;
+}
+
+
+.mtext{
+    width: 100%;
+    text-align: center;
+    color: rgb(30, 50, 230)
+}
+
+  
+
+    
+</style>
+
+
+<!-- <table>
+    <thead>
+        <td>Имя входного файла</td>
+        <td>Дата получения</td>
+        <td>Число СНИЛС</td>
+        <td>Статус обработки</td>
+        <td>Имя выходного файла</td>
+        <td>Дата отправки</td>
+    </thead>
+    
+</table>
+
+
+
+<style>
+    table{
+        font-size: 1.3em;
+        
+        height: 40px;
+        background: #333;
+        width: 100%;
+        color: white;
+    }
+    thead td{
+        text-align: center;
+    }
+</style> -->
+
+
+<!-- 
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="~/images/banner1.svg" alt="ASP.NET" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    Learn how to build ASP.NET apps that can run anywhere.
+                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/banner2.svg" alt="Visual Studio" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    There are powerful new features in Visual Studio for building modern web apps.
+                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/banner3.svg" alt="Package Management" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    Bring in libraries from NuGet, Bower, and npm, and automate tasks using Grunt or Gulp.
+                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525029&clcid=0x409">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/banner4.svg" alt="Microsoft Azure" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
+                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>Application uses</h2>
+        <ul>
+            <li>Sample pages using ASP.NET Core MVC</li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=518004">Bower</a> for managing client-side libraries</li>
+            <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h2>How to</h2>
+        <ul>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699318">Add client packages using Bower.</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h2>Overview</h2>
+        <ul>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h2>Run &amp; Deploy</h2>
+        <ul>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
+        </ul>
+    </div>
+</div> -->

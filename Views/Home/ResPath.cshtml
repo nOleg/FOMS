@@ -1,0 +1,78 @@
+
+@model Settings
+
+@{
+   ViewData["Title"]="Настройка путей";
+   ViewData["pth"]=@"<a href='/'>Главная</a> &bull; Настройка путей к ресурсам";
+}
+
+<a class="profile" href="/settings.xml">Файл параметров</a>
+
+<form asp-action="ResPath" asp-controller="Home"  method="POST" asp-anti-forgery="true">
+    <label class="form-label" asp-for="AttempCount">Предельное кол-во неудачных обращений к сервису Минздрав:</label>
+    <input class="form-element" type="range" min="1" max="15" asp-for="AttempCount" placeholder="Целое число"/>
+       
+
+     <label class="form-label" asp-for="RootFolderPath">Корневая папка для загрузки:</label>
+    <input class="form-element" type="text" asp-for="RootFolderPath" placeholder="Пример:\\192.168.0.40\public\FRMR_input или C:\root\"/>
+     <label class="form-label" asp-for="ResponceFolderPath">Папка для успешных ответов:</label>
+    <input class="form-element" type="text" asp-for="ResponceFolderPath" placeholder="Пример:\\192.168.0.40\public\FRMR_input или C:\root\"/>
+     <label class="form-label" asp-for="ErrorFolderPath">Папка ответов c ошибками:</label>
+    <input class="form-element" type="text" asp-for="ErrorFolderPath" placeholder="Пример:\\192.168.0.40\public\FRMR_input или C:\root\"/>
+     <label class="form-label" asp-for="VerifiedFolderPath">Папка резервирования проверенных запросов:</label>
+    <input class="form-element" type="text" asp-for="VerifiedFolderPath" placeholder="Пример:\\192.168.0.40\public\FRMR_input или C:\root\"/>
+    <label class="form-label" asp-for="ReportPath1">Отчет №1:</label>
+    <input class="form-element" type="text" asp-for="ReportPath1" placeholder="Полный путь к отчету ReportServer"/>
+    <label class="form-label" asp-for="ReportPath2">Отчет №2:</label>
+    <input class="form-element" type="text" asp-for="ReportPath2" placeholder="Полный путь к отчету ReportServer"/>
+    <input  class="btn form-element" type="submit" value="Сохранить"/>
+</form> 
+
+
+<style>
+form{
+    padding: 20px;
+    align-items: center;
+    font: 1.3em Arial #333;
+    margin: 20px auto 20px auto;
+}
+
+.form-element{
+    display: block;
+    font: 1.2em Arial #333;
+    width: 600px;
+    margin: 0 auto 20px auto;
+    
+}
+
+.form-label{
+    display: block;
+    width: 600px;
+    margin: 20px auto 5px auto;
+    
+}
+
+.profile{
+    display: block;
+    margin: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.btn{
+    background: rgb(145, 189, 247);
+    border: 1px solid #0e4bf1;
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+    border-radius: 5px;
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.btn:hover{
+      background: rgb(77, 109, 255);    
+}
+
+
+</style>

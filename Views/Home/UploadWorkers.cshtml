@@ -1,0 +1,82 @@
+@model string
+@{
+    ViewData["pth"]=@"<a href='/'>Главная</a> &bull; Загрузка справочника должностей";
+}
+<form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="UploadWorkers">
+    
+            <label for="file">Выбрать файл xml справочник должностей.</label>
+            <input id="file" type="file" name="file" onchange="btnOn(value)"/>
+            <div id="dwnld" class="onbtn">
+                <p class="warn">*При загрузке файла предыдущая информация о должностях удаляется</p>
+                <input class="btn" type="submit" value="Загрузить" />
+            </div>
+</form>
+
+<div class="links">
+    <a href="uploadresult">Просмотреть таблицу должностей</a>
+    
+    <a href="../files/positions.xlsx">Файл Excel для редактирования должностей и сохранения в XML</a>
+</div>
+
+<script>
+    function btnOn(pth){
+        if(pth.substring(pth.length-4)==".xml"){
+            $("#dwnld").removeClass("onbtn");
+        }else{
+             $("#dwnld").addClass("onbtn");
+        }
+
+    }
+</script>
+
+<style>
+.onbtn{
+    display: none;
+}
+.links{
+    text-align: center;
+}
+
+.links a{
+    display: block;
+    margin: 20px;
+    
+}
+#file{
+    font-size: 14px;
+}
+
+.warn{
+    text-align: center;
+    color: rgb(241, 12, 12);
+}
+
+label, input {
+    display: block;
+    font: 1.4em Arial rgb(177, 177, 177);
+    margin: 20px auto 10px auto;
+    width: 700px;
+
+
+}
+
+.btn{
+    background: rgb(145, 189, 247);
+    border: 1px solid #0e4bf1;
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+    border-radius: 5px;
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.btn:hover{
+      background: rgb(77, 109, 255);    
+}
+
+form{
+    margin: 50px 0 0 0;
+}
+
+</style>

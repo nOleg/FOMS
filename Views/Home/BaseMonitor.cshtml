@@ -1,0 +1,55 @@
+
+    @{
+        ViewData["Title"] = "Монитор базы";
+        ViewData["pth"]=@"<a href='/'>Главная</a> &bull; Монитор базы данных";
+    }
+
+    <div id="workflow" class="wfl"></div>
+
+    <script>
+
+
+
+      window.onload=function(){
+          $("#workflow").html("Загрузка...");
+           $.ajax({
+                url:"/Home/Workflow",
+                type:"post"
+
+            }).done(function(res){
+                $("#workflow").html(res);
+            });
+      };
+
+        setInterval(function(){
+             $("#workflow").html("Загрузка...");
+            $.ajax({
+                url:"/Home/Workflow",
+                type:"post"
+
+            }).done(function(res){
+                $('#workflow').html(res);
+            });
+        },15000);
+
+    </script>
+
+    <style>
+        body{
+             background:url("images/bg.png");
+        }
+        .wfl{
+            position: relative;
+            margin: 50px;
+            
+        
+        }
+        
+        thead td {
+                background: rgb(54, 54, 122);
+                color: #ffffff;
+                text-align: center;
+        }
+    </style>
+
+  
